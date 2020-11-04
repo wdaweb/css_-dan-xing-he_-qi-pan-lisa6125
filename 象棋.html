@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+
+            /* overflow: hidden; */
+             font-family:"標楷體";
+        }
+        .text{
+             writing-mode: vertical-lr;
+             font-size: 28px;
+        }
+        .main{
+            border: 1px solid rgb(0, 0, 0);
+            margin: 0 20px;
+            padding:30px;
+            position: relative;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            width: 55px;
+            height: 55px;
+        }
+        .center td{
+            border: none;
+            font-size: 36px;
+            padding: 0px;
+            text-align: center;
+            line-height: 12px;
+        }
+        .line{
+            position: relative;
+        }
+        .line::before{
+            content: '';
+            position: absolute;
+            width: 156px;
+            height: 1px;
+            background: #000;
+            transform: rotate(45deg);
+            top: 55px;
+            left: -22px;
+        }
+         .line::after{
+            content: '';
+            position: absolute;
+            width: 156px;
+            height: 1px;
+            background: #000;
+            transform: rotate(-45deg);
+            top: 55px;
+            left: -24px;
+        }
+        /* 象棋棋子 */
+        .top{
+            position: absolute;
+            top: 31px;
+            left: 31px;
+            width: 442px;
+            height: 222px;
+
+        }
+        .bottom{
+            position: absolute;
+            bottom: 31px;
+            left: 31px;
+            width: 442px;
+            height: 222px;
+
+        }
+        /* top1,bottom3 */
+        .top1{
+            position: relative;
+            display: flex;
+            top: -20px;
+            left: -20px;
+            justify-content: space-between;
+        }
+        .top1 .che{
+            font-size: 24px;
+            border: 1px solid #000;
+            background: rgb(255, 255, 255);
+            border-radius: 50%;
+            padding: 5px;
+            margin-right: 20px;
+        }
+         .bottom3{
+            position: relative;
+            display: flex;
+            bottom:-55px;
+            left: -20px;
+            justify-content: space-between;
+        }
+        
+         .bottom3 .che{
+            font-size: 24px;
+            color: rgb(255, 0, 0);
+            border: 1px solid rgb(255, 0, 0);
+            background: rgb(255, 255, 255);
+            border-radius: 50%;
+            padding: 5px;
+            margin-right: 20px;
+        }
+        /* top2,bottom2 */
+        .top2{
+            position: relative;
+            display: flex;
+            top: 20px;
+            left: 0px;
+            justify-content: space-between;
+        }
+        .top2 .che{
+            font-size: 24px;
+            border: 1px solid #000;
+            background: rgb(255, 255, 255);
+            border-radius: 50%;
+            padding: 5px;
+            margin: 30px;
+        }
+         .bottom2{
+            position: relative;
+            display: flex;
+            bottom:-20px;
+            left: 0px;
+            justify-content: space-between;
+        }
+         
+         .bottom2 .che{
+            font-size: 24px;
+            color: rgb(255, 0, 0);
+            border: 1px solid rgb(255, 0, 0);
+            background: rgb(255, 255, 255);
+            border-radius: 50%;
+            padding: 5px;
+            margin: 33px;
+        }
+        /* top3,bottom1 */
+        .top3{
+            position: relative;
+            display: flex;
+            bottom: 0px;
+            left: -20px;
+            justify-content: space-between;
+        }
+        .top3 .che{
+            font-size: 24px;
+            border: 1px solid #000;
+            background: rgb(255, 255, 255);
+            border-radius: 50%;
+            padding: 5px;
+            margin-right: -40px;
+        }
+        .bottom1{
+            position: relative;
+            display: flex;
+            bottom: -35px;
+            left: -20px;
+            justify-content: space-between;
+        }
+        .bottom1 .che{
+            font-size: 24px;
+            border: 1px solid rgb(255, 0, 0);
+            background: rgb(255, 255, 255);
+            border-radius: 50%;
+            padding: 5px;
+            margin-right: -40px;
+            color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="text">棋盤裡，車無輪，馬無韁，叫聲將軍提防提防</div>
+    <div class="main">
+        <table border="1px" cellspacing="0" cellpadding='0' bordercolor='#000'>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="line"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="center">
+            <td colspan="4">
+                楚河
+            </td>
+            <td colspan="4">
+                漢界
+            </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="line"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+         <div class="top">
+                <div class="top1">
+                    <div class="che">車</div>
+                    <div class="che">馬</div>
+                    <div class="che">象</div>
+                    <div class="che">士</div>
+                    <div class="che">將</div>
+                    <div class="che">士</div>
+                    <div class="che">象</div>
+                    <div class="che">馬</div>
+                    <div class="che">車</div>
+                </div>
+                <div class="top2">
+                    <div class="che">包</div>
+                    <div class="che">包</div>
+                </div>
+                <div class="top3">
+                    <div class="che">卒</div>
+                    <div class="che">卒</div>
+                    <div class="che">卒</div>
+                    <div class="che">卒</div>
+                    <div class="che">卒</div>
+                </div>
+        </div>
+        <div class="bottom">
+                <div class="bottom1">
+                    <div class="che">兵</div>
+                    <div class="che">兵</div>
+                    <div class="che">兵</div>
+                    <div class="che">兵</div>
+                    <div class="che">兵</div>
+                </div>
+                <div class="bottom2">
+                    <div class="che">炮</div>
+                    <div class="che">炮</div>
+                </div>
+                <div class="bottom3">
+                    <div class="che">俥</div>
+                    <div class="che">傌</div>
+                    <div class="che">相</div>
+                    <div class="che">仕</div>
+                    <div class="che">帥</div>
+                    <div class="che">仕</div>
+                    <div class="che">相</div>
+                    <div class="che">傌</div>
+                    <div class="che">俥</div>
+                </div>
+        </div>
+    </div>
+    <div class="text">圖畫裡，龍不吟，虎不嘯，小小書童可笑可笑</div>
+</body>
+</html>
